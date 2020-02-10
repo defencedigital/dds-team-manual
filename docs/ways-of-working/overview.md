@@ -9,9 +9,9 @@ authors:    team@digital.mod.uk
 
 # Managing delivery
 
-Hopefully, by now, it goes without saying that we're doing doing [agile](https://agilemanifesto.org/) development. 
+Hopefully, by now, it goes without saying that we're doing [agile](https://agilemanifesto.org/) development. 
 
-We don't prescribe to any particular methodology, as each project may need a slightly different approach. That said , the only methodologies that we explicitly don't follow are SAFe and DSDM, given their too-close-for-comfort similarity to the old way of doing things. 
+We don't prescribe any particular methodology, as each project may need a slightly different approach. That said, the only methodologies that we explicitly don't follow are SAFe and DSDM, given their too-close-for-comfort similarity to the old way of doing things. 
 
 As per elements of [Scrum](https://www.scrum.org/resources/what-is-scrum) and [kanban](https://en.wikipedia.org/wiki/Kanban_(development)), we tend to have short, sprint-like cycles, using a board that moves chunks of value to users from the left (backlog) to the right (done). We also restrict our work-in-progress (WiP) limits to increase the likelihood of rapid delivery of value to users. 
 

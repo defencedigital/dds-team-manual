@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Make the site static
-      with:
     - name: Push to GOV.UK PaaS
       uses: defencedigital/dds-team-manual@master
       with:
