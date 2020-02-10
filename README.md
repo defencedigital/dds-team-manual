@@ -1,2 +1,3 @@
-# dds-team-manual
+# DDS team manual
+
 Team manual for the Defence Digital Service (DDS)
