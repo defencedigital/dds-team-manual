@@ -7,15 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-<<<<<<< HEAD
 
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
         python-version: '3.8'
 
-=======
->>>>>>> fdf07d2... Attempt 2: Fix GH Actions > Pages workflow
     - name: Install requirements
       run: |
         echo "Installing Python3..."
@@ -49,7 +46,7 @@ jobs:
         git config --global user.name "IBG"
         git fetch
         cd public
-        git checkout gh-pages
+        git checkout -f gh-pages
         git add .
         git commit -m "Add GitHub Pages static files"
 
@@ -104,3 +101,11 @@ jobs:
 #      env:
 #        BUILD_DIR: "public/"
 #        REMOTE_REPO: "ssh://git@github.com:${OWNER}/${GITHUB_REPOSITORY}.git"
+=======
+        docnado --html public
+    - name: Deploy to GitHub Pages
+      uses: maxheld83/ghpages@v0.2.1
+      env:
+        BUILD_DIR: "public/"
+        GITHUB_PAGES: ${{ secrets.GITHUB_PAGES }}
+>>>>>>> 1e199a6... Attempt 3: Fix GH Actions > Pages workflow
