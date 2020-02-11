@@ -10,7 +10,7 @@ jobs:
         echo "Installing Python3..."
         sudo apt-get install python3-venv
         echo "Setting up virtual environment..."
-        python3.8 -m venv venv
+        python3 -m venv venv
         echo "Activating virtual environment..."
         source venv/bin/activate
         echo "Installing dependencies from requiremens.txt..."
