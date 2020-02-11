@@ -19,6 +19,7 @@ jobs:
       with:
         repository: HEInventions/docnado
         path: docnado
+    - name: Install dependencies
       run: |
         echo "Installing dependencies..."
         pip install .
