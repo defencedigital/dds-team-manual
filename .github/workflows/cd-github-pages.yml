@@ -19,9 +19,9 @@ jobs:
       with:
         repository: HEInventions/docnado
         path: docnado
-        run: |
-          echo "Installing dependencies..."
-          pip install .
+      run: |
+        echo "Installing dependencies..."
+        pip install .
     - name: Make static
       run: |
         python3 ./docnado/docnado/docnado.py --html public
