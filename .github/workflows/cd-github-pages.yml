@@ -18,7 +18,6 @@ jobs:
         echo "Installing Python3..."
         sudo apt-get install python3-venv
         echo "Setting up virtual environment..."
-        apt-get install python3-venv
         python3 -m venv venv
         echo "Activating virtual environment..."
         source venv/bin/activate
@@ -47,7 +46,7 @@ jobs:
         git config --global user.name "IBG"
         git fetch
         cd public
-        git checkout -f gh-pages
+        git checkout gh-pages
         git add .
         git commit -m "Add GitHub Pages static files"
 
@@ -102,11 +101,3 @@ jobs:
 #      env:
 #        BUILD_DIR: "public/"
 #        REMOTE_REPO: "ssh://git@github.com:${OWNER}/${GITHUB_REPOSITORY}.git"
-=======
-        docnado --html public
-    - name: Deploy to GitHub Pages
-      uses: maxheld83/ghpages@v0.2.1
-      env:
-        BUILD_DIR: "public/"
-        GITHUB_PAGES: ${{ secrets.GITHUB_PAGES }}
->>>>>>> 1e199a6... Attempt 3: Fix GH Actions > Pages workflow
