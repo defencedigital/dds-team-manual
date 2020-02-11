@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         echo "Installing dependencies..."
-        cd docnado/docnado
+        cd docnado
         pip install .
     - name: Make static
       run: |
