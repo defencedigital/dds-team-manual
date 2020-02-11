@@ -14,6 +14,7 @@ jobs:
         echo "Activating virtual environment..."
         source venv/bin/activate
         echo "Installing dependencies from requiremens.txt..."
+        pip install wheel
         pip install -r requirements.txt
     - name: Make static
       run: |
