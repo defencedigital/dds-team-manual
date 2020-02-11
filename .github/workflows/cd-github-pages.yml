@@ -10,7 +10,7 @@ jobs:
         echo "Installing Python3..."
         sudo apt-get install python3-venv
         echo "Setting up virtual environment..."
-        python3 -m venv venv
+        python3.8 -m venv venv
         echo "Activating virtual environment..."
         source venv/bin/activate
         echo "Installing dependencies from requiremens.txt..."
@@ -18,7 +18,7 @@ jobs:
         pip install -r requirements.txt
     - name: Make static
       run: |
-        docnado --html public
+        python venv/lib/python3.8/site-packages/docnado/docnado.py --html public
     - name: Deploy to GitHub Pages
       uses: maxheld83/ghpages@v0.2.1
       env:
