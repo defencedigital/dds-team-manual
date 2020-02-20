@@ -53,7 +53,6 @@ jobs:
     - name: Push to GitHub
       run: |
         echo "Pushing gh-pages branch to GitHub"
-        git fetch
         git push origin gh-pages
       env:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
