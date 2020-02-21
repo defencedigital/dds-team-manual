@@ -46,7 +46,7 @@ jobs:
         git config --global user.name "IBG"
         git fetch
         cd public
-        git checkout gh-pages
+        git checkout -f gh-pages
         git add .
         git commit -m "Add GitHub Pages static files"
 
