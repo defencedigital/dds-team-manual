@@ -1,0 +1,23 @@
+#name: Deploy DDS team manual
+#on:
+#  push:
+#    branches:
+#    - master
+#
+#jobs:
+#  deploy:
+#    name: Deploy
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Push to GOV.UK PaaS
+#      uses: defencedigital/dds-team-manual@master
+#      with:
+#        args: push --strategy rolling -f manifest.yml
+#      env:
+#        CF_API: "https://api.cloud.service.gov.uk"
+#        CF_ORG: ""
+#        CF_SPACE: ""
+#        CF_USERNAME: ""
+#        # Set CFPassword - https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables
+#        CF_PASSWORD: ${{ secrets.CFPassword }}

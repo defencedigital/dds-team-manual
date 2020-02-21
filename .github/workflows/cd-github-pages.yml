@@ -1,0 +1,103 @@
+# Using bare GH Actions
+
+name: Deploy to GitHub Pages
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+
+    - name: Install requirements
+      run: |
+        echo "Installing Python3..."
+        sudo apt-get install python3-venv
+        echo "Setting up virtual environment..."
+        python3 -m venv venv
+        echo "Activating virtual environment..."
+        source venv/bin/activate
+        pip install wheel
+
+    - name: Get Docnado
+      uses: actions/checkout@v2
+      with:
+        repository: HEInventions/docnado
+        path: docnado
+
+    - name: Install dependencies
+      run: |
+        echo "Installing dependencies..."
+        cd docnado
+        pip install .
+
+    - name: Make static
+      run: |
+        python3 ./docnado/docnado/docnado.py --html public
+
+    - name: Prepare gh-pages branch
+      run: |
+        echo "Preparing gh-pages branch..."
+        git config --global user.email "iain@digital.mod.uk"
+        git config --global user.name "IBG"
+        git fetch
+        cd public
+        git checkout -f gh-pages
+        git add -A
+        git commit -m "Add GitHub Pages static files"
+
+    - name: Push to GitHub
+      run: |
+        echo "Pushing gh-pages branch to GitHub"
+        git push origin gh-pages
+      env:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+
+# Using ghpages action...
+
+#name: Deploy to GitHub Pages
+#on: [push]
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Set up Python 3.8
+#      uses: actions/setup-python@v1
+#      with:
+#        python-version: '3.8'
+#    - name: Install requirements
+#      run: |
+#        echo "Installing Python3..."
+#        sudo apt-get install python3-venv
+#        echo "Setting up virtual environment..."
+#        python3 -m venv venv
+#        echo "Activating virtual environment..."
+#        source venv/bin/activate
+#        pip install wheel
+#    - name: Get Docnado
+#      uses: actions/checkout@v2
+#      with:
+#        repository: HEInventions/docnado
+#        path: docnado
+#    - name: Install dependencies
+#      run: |
+#        echo "Installing dependencies..."
+#        cd docnado
+#        pip install .
+#    - name: Make static
+#      run: |
+#        python3 ./docnado/docnado/docnado.py --html public
+#    - name: Deploy to GitHub Pages
+#      uses: maxheld83/ghpages@v0.2.1
+#      with:
+#        GITHUB_PAGES: ${{ secrets.GITHUB_PAGES }}
+#        repo-token: ${{ secrets.GITHUB_TOKEN }}
+#      env:
+#        BUILD_DIR: "public/"
+#        REMOTE_REPO: "ssh://git@github.com:${OWNER}/${GITHUB_REPOSITORY}.git"

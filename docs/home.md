@@ -10,8 +10,6 @@ authors:    team@digital.mod.uk
 DDS came into being at the beginning of November 2019, so we're just getting setup. Don't worry, we'll add much more to this team manual as time goes on.
 {: .warning}
 
-Docnado makes it easy to start and maintain a Markdown documentation project. Store your own data your own way.
-
 # Who we are
 
 The Defence Digital Service (DDS) came into being at the beginning of November 2019. Our mission? **To pave the way for the rapid delivery of user-centred products and services in Defence**. Using modern practices and technologies we’re aiming to bring tactical and strategic advantage by responding rapidly to user needs, both in the office and the battlespace.
